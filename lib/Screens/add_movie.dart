@@ -90,11 +90,6 @@ class _AddMovieState extends State<AddMovie> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-  
-  @override
   void dispose() {
     nameController.dispose();
     directorController.dispose();
@@ -107,12 +102,13 @@ class _AddMovieState extends State<AddMovie> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit'),
+        title: Text('Add'),
         backgroundColor: Color(0xff0071bc),
       ),
-      backgroundColor: Color(0xaaADD8E6),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
+          color: Color(0x550071bc),
           padding: EdgeInsets.only(left: 15, top: 22, right: 15),
           child: Stack(children: [
             ListView(
@@ -213,7 +209,7 @@ class _AddMovieState extends State<AddMovie> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Runtime',
-                            suffixText: 'm',
+                            suffixText: 'minutes',
                             suffixIcon: Icon(Icons.access_time),
                           ),
                         ),
@@ -244,7 +240,6 @@ class _AddMovieState extends State<AddMovie> {
                         },
                       ),
                     ),
-                    // Review Input TODO: Bug where text box it doesn't resize on time
                     SizedBox(
                       width: double.infinity,
                       child: IntrinsicHeight(

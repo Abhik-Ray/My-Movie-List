@@ -92,7 +92,6 @@ class _EditMovieState extends State<EditMovie> {
 
   @override
   void initState() {
-    // TODO: implement initState
     rate = widget.movie.movieRating;
     selectedDate = widget.movie.movieWatchDate;
     _image = widget.movie.poster;
@@ -106,12 +105,14 @@ class _EditMovieState extends State<EditMovie> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Edit'),
         backgroundColor: Color(0xff0071bc),
       ),
       body: SafeArea(
         child: Container(
+          color: Color(0x550071bc),
           padding: EdgeInsets.only(left: 15, top: 22, right: 15),
           child: Stack(children: [
             ListView(
@@ -142,12 +143,13 @@ class _EditMovieState extends State<EditMovie> {
                         children: [
                           //IMDB button
                           Material(
+                            color: Color(0x550071bc),
                             child: InkWell(
                               onTap: () => launchURL(),
                               child: Card(
                                 color: Color(0xff0071bc),
                                 child: Container(
-                                  child: Text('Get data from IMDB'),
+                                  child: Text('Search in \n    IMDB'),
                                   margin: EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 10),
                                 ),
@@ -209,7 +211,7 @@ class _EditMovieState extends State<EditMovie> {
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             hintText: 'Runtime',
-                            suffixText: 'm',
+                            suffixText: 'minutes',
                             suffixIcon: Icon(Icons.access_time),
                           ),
                         ),
@@ -240,7 +242,6 @@ class _EditMovieState extends State<EditMovie> {
                         },
                       ),
                     ),
-                    // Review Input TODO: Bug where text box it doesn't resize on time
                     SizedBox(
                       width: double.infinity,
                       child: IntrinsicHeight(
